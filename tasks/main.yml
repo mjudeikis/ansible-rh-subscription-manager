@@ -27,13 +27,3 @@
     delay: 3
     register: result
     until: result | success
-  
-  - name: Update MOTD
-    blockinfile: 
-      insertafter: EOF
-      marker: "==============================================================="
-      dest: /etc/motd
-      content: |
-        Registered with Red Hat CDN
-        Repositories enabled:
-        {{ rh_repos | to_nice_yaml }}
